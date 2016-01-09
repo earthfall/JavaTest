@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.BitSet;
+
 public class Chapter01 {
 
 	public static boolean checkUniqueString(String input) {
@@ -78,6 +80,72 @@ public class Chapter01 {
 	}
 	
 	public static void roate(int[][] input, int n) {
-		//
+		
+		for (int i = 0; i < n/2; i++) {
+			int size = n - i - 1;
+			for (int j = i; j < size; j++) {
+				int offset = j - i;
+				
+				int tmp = input[i][j];
+				// index 조건 주의
+				// j index 이름을 start/last로 변경하는 것이 더 명확하다
+				input[i][j] = input[size - offset][i];
+				input[size - offset][i] = input[size][size - offset];
+				input[size][size - offset] = input[j][size];
+				input[j][size] = tmp;
+			}
+		}
+	}
+	
+	public static void setZero(int[][] input) {
+		int m = input.length;
+		int n = input[0].length;
+		
+		BitSet rows = new BitSet(m);
+		BitSet cols = new BitSet(n);
+			
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (input[i][j] == 0) {
+					rows.set(i);
+					cols.set(j);
+				}
+			}
+		}
+		
+		for (int i = rows.nextSetBit(0); i >= 0; i = rows.nextSetBit(i + 1)) {
+			for (int j = 0; j < n; j++) {
+				input[i][j] = 0;
+			}
+		}
+
+		for (int j = cols.nextSetBit(0); j >= 0; j = cols.nextSetBit(j + 1)) {
+			for (int i = 0; i < m; i++) {
+				input[i][j] = 0;
+			}
+		}
+				
+		// 0의 개수가 드물다면 위의 방법이 유리, 0이 많으면 아래가 유리
+		/*
+		for (int i = 0; i < m; i++) {
+			for (int j = 0; j < n; j++) {
+				if (rows.get(i) || cols.get(j)) {
+					input[i][j] = 0;
+				}
+			}
+		}
+		*/
+	}
+	
+	// dummy function
+	private static boolean isSubString(String s1, String s2) {
+		return true;
+	}
+	
+	public static boolean checkSubString(String left, String right) {
+		// 길이 check를 통해서 length가 다르면 false 반환
+		
+		String twice = left + left;
+		return isSubString(twice, right);
 	}
 }

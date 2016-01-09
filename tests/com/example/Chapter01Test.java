@@ -38,6 +38,21 @@ public class Chapter01Test {
 	
 	@Test
 	public void testRotate() {
-		//
+		int[][] picture = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+		
+		Chapter01.roate(picture, 4);
+		
+		assertEquals(13, picture[0][0]);
+		assertEquals(4, picture[3][3]);
+	}
+	
+	@Test
+	public void testSetZero() {
+		int[][] input = { { 1, 2, 3, 4 }, { 5, 6, 0, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+		
+		Chapter01.setZero(input);
+		
+		assertEquals(0, input[0][2]);
+		assertEquals(0, input[1][0]);
 	}
 }
