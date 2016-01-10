@@ -21,6 +21,19 @@ public class Chapter02 {
 			n.next = new ListNode(d);
 		}
 		
+		ListNode findNode(int d) {
+			ListNode n = this;
+			while (n.next != null) {
+				if (n.data == d) {
+					return n;
+				}
+				
+				n = n.next;
+			}
+			
+			return null;
+		}
+		
 		@Override
 		public String toString() {
 			ListNode n = this;
