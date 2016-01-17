@@ -18,6 +18,12 @@ public class MediumDifficultyTest {
 	public void testFindMax() {
 		assertEquals(321, MediumDifficulty.findMax(321, 123));
 	}
+	
+	@Test
+	public void testMakeIncreasingNum() {
+		
+		MediumDifficulty.makeIncreasingNum(new int[] {1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19});
+	}
 
 	@Test
 	public void testRead3269267() {
@@ -55,5 +61,20 @@ public class MediumDifficultyTest {
 		int val = MediumDifficulty.getMaxSum(array);
 		System.out.println(val);
 		assertEquals(5, val);
+	}
+	
+	@Test
+	public void testConvertTreeToList() {
+		BiNode root = new BiNode(4);
+		BiNode.treeInsert(root, 2);
+		BiNode.treeInsert(root, 1);
+		BiNode.treeInsert(root, 3);
+		BiNode.treeInsert(root, 5);
+
+		BiNode.printTree(root);
+		System.out.println();
+
+		BiNode head = MediumDifficulty.convertTreeToList(root);
+		BiNode.printList(head);
 	}
 }

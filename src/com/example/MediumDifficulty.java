@@ -26,6 +26,48 @@ public class MediumDifficulty {
 		int sign = (c >> 31) & 0x1;
 		return a - sign * c;
 	}
+	
+	// 실제로 sorting 후 diff index 계산
+	public static void makeIncreasingNum(int[] array) {
+		int max = -1;
+		for (int i : array) {
+			if (i > max) {
+				max = i;
+			}
+		}
+		
+		int count[] = new int[max + 1];
+		for (int i : array) {
+			count[i]++;
+		}
+		
+		int[] sorted = new int[array.length];
+		int index = 0;
+		for (int i = 0; i <= max; i++) {
+			while (count[i] > 0) {
+				sorted[index++] = i;
+				count[i]--;
+			}
+		}
+		
+		int minDiff = -1;
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] != sorted[i]) {
+				minDiff = i;
+				break;
+			}
+		}
+		
+		int maxDiff = -1;
+		for (int i = array.length - 1; i >= 0; i--) {
+			if (array[i] != sorted[i]) {
+				maxDiff = i;
+				break;
+			}
+		}
+		
+		System.out.println("(" + minDiff + ", " + maxDiff + ")");
+	}
 
 	private static final String INT_VALUES[] = { null, "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight",
 			"Nine", "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eightteen",
@@ -109,5 +151,21 @@ public class MediumDifficulty {
 			sum += array[index];
 		}
 		return sum;
+	}
+	
+	public static BiNode convertTreeToList(BiNode node) {
+		if (node == null)
+			return null;
+		
+		BiNode left = convertTreeToList(node.node1);
+		BiNode right = convertTreeToList(node.node2);
+		
+		node.node1 = node;
+		node.node2 = node;
+		
+		left = BiNode.append(left, node);
+		left = BiNode.append(left, right);
+			
+		return left;
 	}
 }
