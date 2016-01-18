@@ -77,4 +77,17 @@ public class MediumDifficultyTest {
 		BiNode head = MediumDifficulty.convertTreeToList(root);
 		BiNode.printList(head);
 	}
+	
+	@Test
+	public void testPrintPair() {
+		int[] input = {-2, -1, 0, 3, 5, 6, 7, 9, 13, 14};
+		
+		MediumDifficulty.printPair(input, 8);
+	}
+	
+	@Test
+	public void testParseSentence() {
+		Replace.replace("thisisawesome");
+		//Replace.replace("jesslookedjustliketimherbrother");
+	}
 }

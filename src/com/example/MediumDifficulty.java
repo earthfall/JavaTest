@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Arrays;
+
 public class MediumDifficulty {
 
 	public static void replace(int a, int b) {
@@ -167,5 +169,26 @@ public class MediumDifficulty {
 		left = BiNode.append(left, right);
 			
 		return left;
+	}
+	
+	// 정렬 후 동작
+	public static void printPair(int[] array, int n) {
+		Arrays.sort(array);
+		
+		int first = 0;
+		int last = array.length - 1;
+		
+		while (first < last) {
+			int s = array[first] + array[last];
+			if (s == n) {
+				System.out.println(array[first] + ", " + array[last]);
+				first++;
+				last--;
+			} else if (s < n) {
+					first++;
+			} else {
+				last--;
+			}
+		}
 	}
 }
