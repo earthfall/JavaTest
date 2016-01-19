@@ -27,4 +27,23 @@ public class HardDifficultyTest {
 	public void testCount20000() {
 		HardDifficulty.countTwo(20000);
 	}
+	
+	@Test
+	public void testFindLongestCombinationWord() {
+		String[] input = {"cat", "banana", "dog", "nana", "walk", "walker", "dogwalker"};
+		
+		assertEquals("dogwalker", HardDifficulty.findLongestCombinationWord(input));
+	}
+	
+	@Test
+	public void testfindWordInWord() {
+		String[] input = {"b", "ibs", "ad2", "s", "a", "ca", "zq"};
+		
+		HardDifficulty.findWordInWord("bibs", input);
+	}
+	
+	@Test
+	public void testConvertWord() {
+		HardDifficulty.convertWord("DAMP", "LIKE");
+	}
 }
