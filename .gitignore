@@ -1,0 +1,10 @@
+?/
+.gradle/
+.idea/
+classes/
+build/
+*.swn
+*.swo
+*.swp
+.classpath
+.project

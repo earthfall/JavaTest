@@ -1,3 +1,0 @@
-# JavaTest
-
-Personal CtCI practice
