@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MyGraph {
     static class AdjlistNode {
         int vertex;
@@ -65,7 +67,7 @@ public class MyGraph {
     }
 
     public static void main(String args[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_graph.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_graph.txt")));
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
         for (int test_case = 1; test_case <= T; test_case++) {

@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MyMap {
     static class Node {
         int key;
@@ -106,7 +108,7 @@ public class MyMap {
     }
 
     public static void main(String arg[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_map.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_map.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();

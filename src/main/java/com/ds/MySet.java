@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MySet {
     static class Node {
         int key;
@@ -101,7 +103,7 @@ public class MySet {
     }
 
     public static void main(String arg[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_set.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_set.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();

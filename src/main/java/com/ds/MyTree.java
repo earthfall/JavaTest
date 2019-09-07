@@ -1,7 +1,8 @@
 package com.ds;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import static com.ds.Resources.getResourceFile;
 
 public class MyTree {
     private static final int MAX_CHILD_NUM = 2;
@@ -63,8 +64,8 @@ public class MyTree {
         }
     }
 
-    public static void main(String arg[]) throws FileNotFoundException {
-        System.setIn(new java.io.FileInputStream("resources/input_tree.txt"));
+    public static void main(String arg[]) throws Exception {
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_tree.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();

@@ -1,7 +1,8 @@
 package com.ds;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import static com.ds.Resources.getResourceFile;
 
 class MyStack2<T> {
     private static final int MAX_N = 100;
@@ -43,8 +44,8 @@ class MyStack2<T> {
         return stack[top];
     }
 
-    public static void main(String arg[]) throws FileNotFoundException {
-        System.setIn(new java.io.FileInputStream("resources/input_stack.txt"));
+    public static void main(String arg[]) throws Exception {
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_stack.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();

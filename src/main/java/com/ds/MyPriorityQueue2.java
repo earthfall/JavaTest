@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MyPriorityQueue2<T> {
     static final int MAX_SIZE = 100;
 
@@ -77,7 +79,7 @@ public class MyPriorityQueue2<T> {
 
 
     public static void main(String arg[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_heap.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_heap.txt")));
         Scanner sc = new Scanner(System.in);
 
         ValueComparator<Integer> cmp = (arg1, arg2) -> arg1 < arg2;

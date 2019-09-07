@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MySet2<T> {
     interface ValueComparator<T> {
         boolean compare(T arg1, T arg2);
@@ -107,7 +109,7 @@ public class MySet2<T> {
     }
 
     public static void main(String[] arg) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_set.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_set.txt")));
         Scanner sc = new Scanner(System.in);
 
         ValueComparator<Integer> cmp = (arg1, arg2) -> arg1 < arg2;

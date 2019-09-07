@@ -1,7 +1,8 @@
 package com.ds;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
+
+import static com.ds.Resources.getResourceFile;
 
 public class MyQueue {
     private static final int MAX_N = 100;
@@ -52,8 +53,8 @@ public class MyQueue {
         return value;
     }
 
-    public static void main(String arg[]) throws FileNotFoundException {
-        System.setIn(new java.io.FileInputStream("resources/input_queue.txt"));
+    public static void main(String arg[]) throws Exception {
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_queue.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();

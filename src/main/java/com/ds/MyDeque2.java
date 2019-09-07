@@ -2,16 +2,18 @@ package com.ds;
 
 import java.util.Scanner;
 
-public class MyDeque {
+import static com.ds.Resources.getResourceFile;
+
+public class MyDeque2<T> {
     private static final int MAX = 100;
 
-    private int arr[];
+    private T[] arr;
     private int front;
     private int rear;
     private int size;
 
-    MyDeque(int size) {
-        arr = new int[MAX];
+    MyDeque2(int size) {
+        arr = (T[]) new Object[MAX];
         front = -1;
         rear = 0;
         this.size = size;
@@ -25,7 +27,7 @@ public class MyDeque {
         return (front == -1);
     }
 
-    void insertFront(int value) {
+    void insertFront(T value) {
         if (isFull()) {
             System.out.println("Overflow");
             return;
@@ -42,7 +44,7 @@ public class MyDeque {
         arr[front] = value;
     }
 
-    void insertRear(int value) {
+    void insertRear(T value) {
         if (isFull()) {
             System.out.println("Overflow");
             return;
@@ -59,18 +61,18 @@ public class MyDeque {
         arr[rear] = value;
     }
 
-    int getFront() {
+    T getFront() {
         if (isEmpty()) {
             System.out.println("Underflow");
-            return -1;
+            return null;
         }
         return arr[front];
     }
 
-    int getRear() {
+    T getRear() {
         if (isEmpty() || rear < 0) {
             System.out.println("Underflow");
-            return -1;
+            return null;
         }
         return arr[rear];
     }
@@ -108,7 +110,7 @@ public class MyDeque {
     }
 
     public static void main(String arg[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_deque.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_deque.txt")));
         Scanner sc = new Scanner(System.in);
 
         int T = sc.nextInt();
@@ -117,7 +119,7 @@ public class MyDeque {
             int N = sc.nextInt();
             int M = sc.nextInt();
 
-            MyDeque myDeque = new MyDeque(N);
+            MyDeque2<Integer> myDeque = new MyDeque2<>(N);
 
             System.out.print("#" + test_case + " ");
 

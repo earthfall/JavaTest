@@ -2,6 +2,8 @@ package com.ds;
 
 import java.util.Scanner;
 
+import static com.ds.Resources.getResourceFile;
+
 public class MyHash2<T> {
     static class Hash<T> {
         String key;
@@ -58,7 +60,7 @@ public class MyHash2<T> {
     private final static int MAX_TABLE = 4096;
 
     public static void main(String args[]) throws Exception {
-        System.setIn(new java.io.FileInputStream("resources/input_hash.txt"));
+        System.setIn(new java.io.FileInputStream(getResourceFile("input_hash.txt")));
         Scanner sc = new Scanner(System.in);
         int T = sc.nextInt();
         for (int test_case = 1; test_case <= T; test_case++) {
